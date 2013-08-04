@@ -1,0 +1,72 @@
+﻿@model Authentication.Federated.ViewModels.FederationSettingsPartViewModel
+
+<fieldset>
+  <legend>@T("Federated authentication settings")</legend>
+
+  <div class="editor-field">
+    @Html.CheckBoxFor(model => model.EnableFederatedAuthentication) @T("Enable federated authentication?")
+
+    <span class="hint">@T("Warning: enabling federated authenication will override the standard username/password login and will redirect users to the STS by default. Ensure the settings entered below are correct by testing them first via <a href=\"../../FederatedAuthentication/TestLogOn\" target=\"_blank\">the federated sign-in process</a> before enabling federated authentication. Not doing so may result in not being able to authenticate with Orchard anymore.")</span>
+  </div>
+  
+  <div class="editor-field">
+    @Html.CheckBoxFor(model => model.TranslateClaimsToOrchardUserProperties) @T("Translate claims to Orchard user properties?")
+  </div>
+  <div class="editor-field">
+    @Html.CheckBoxFor(model => model.TranslateClaimsToOrchardRoles) @T("Translate claims to Orchard roles?")
+  </div>
+  <div class="editor-label">
+    @T("Prefix for federated usernames (e.g. \"federated_\")"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.FederatedUsernamePrefix, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.FederatedUsernamePrefix)
+  </div>
+
+  <div class="editor-label">
+    @T("STS issuer URL"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.StsIssuerUrl, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.StsIssuerUrl)
+  </div>
+  <div class="editor-label">
+    @T("STS login page URL"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.StsLoginUrl, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.StsLoginUrl)
+  </div>
+
+  <div class="editor-label">
+    @T("Realm"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.Realm, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.Realm)
+  </div>
+
+  <div class="editor-label">
+    @T("Return URL base"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.ReturnUrlBase, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.ReturnUrlBase)
+  </div>
+
+  <div class="editor-label">
+    @T("Audience URL"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.AudienceUrl, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.AudienceUrl)
+  </div>
+
+  <div class="editor-label">
+    @T("X509 certificate thumbprint (used for issuer URL token signing)"):
+  </div>
+  <div class="editor-field">
+    @Html.TextBoxFor(model => model.X509CertificateThumbprint, new { @class = "textMedium" })
+    @Html.ValidationMessageFor(model => model.X509CertificateThumbprint)
+  </div>
+</fieldset>

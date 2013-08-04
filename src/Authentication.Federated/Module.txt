@@ -1,0 +1,13 @@
+Name: Authentication.Federated
+AntiForgery: disabled
+Author: Maarten Balliauw
+Website: http://blog.maartenballiauw.be
+Version: 0.2
+OrchardVersion: 1.0
+Description: Federated authentication for Orchard. This module enables SAML 2.0 authentication in Orchard, for example Windows Azure AppFabric Access Control Service.
+
+Features:
+    Authentication.Federated:
+        Description: Federated authentication for Orchard. This module enables SAML 2.0 authentication in Orchard, for example Windows Azure AppFabric Access Control Service.
+        Category: Authentication
+        Dependencies: Orchard.Users,Orchard.Roles,Settings
